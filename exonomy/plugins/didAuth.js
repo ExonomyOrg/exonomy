@@ -2,6 +2,9 @@ import { DID } from 'dids';
 import { Ed25519Provider } from 'key-did-provider-ed25519';
 import { getResolver } from 'key-did-resolver';
 import { useDIDStore } from '@/store/did';
+import { verifyJWT, createJWT } from 'did-jwt';
+import { Resolver } from 'did-resolver';
+import { getResolver as ethrGetResolver } from 'ethr-did-resolver';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const didStore = useDIDStore();
@@ -31,9 +34,25 @@ export default defineNuxtPlugin((nuxtApp) => {
     // For example, you can store the DID and the encrypted key in a database
   };
 
+  const verifyDID = async (jwt) => {
+    const resolver = new Resolver({
+      ...getResolver(),
+      ...ethrGetResolver(),
+    });
+    const verified = await verifyJWT(jwt, { resolver });
+    return verified;
+  };
+
+  const createDIDJWT = async (payload, did, secret) => {
+    const jwt = await createJWT(payload, { issuer: did, signer: secret });
+    return jwt;
+  };
+
   nuxtApp.provide('didAuth', {
     createDID,
     signIn,
     signUp,
+    verifyDID,
+    createDIDJWT,
   });
 });

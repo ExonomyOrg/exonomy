@@ -17,5 +17,11 @@ export const useTenantAppsStore = defineStore('tenantApps', {
         this.tenantApps[index] = updatedApp;
       }
     },
+    setInstallationStatus(appId, status) {
+      const index = this.tenantApps.findIndex(app => app.id === appId);
+      if (index !== -1) {
+        this.tenantApps[index].installationStatus = status;
+      }
+    },
   },
 });
