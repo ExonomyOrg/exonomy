@@ -1,0 +1,23 @@
+{
+  "name": "exonomy",
+  "version": "1.0.0",
+  "description": "Exonomy host application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nuxt": "^3.0.0",
+    "pinia": "^2.0.0",
+    "orbit-db": "^0.28.0",
+    "did-jwt": "^6.0.0",
+    "did-resolver": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-module": "^3.0.0"
+  },
+  "author": "ExonomyOrg",
+  "license": "MIT"
+}
