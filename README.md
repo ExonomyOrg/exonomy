@@ -26,7 +26,7 @@ To run the Exonomy host application, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/ExonomyOrg/exonomy.git
-   cd exonomy/host-app
+   cd exonomy
    ```
 
 2. Install the dependencies:
@@ -43,7 +43,7 @@ The application will be available at `http://localhost:3000`.
 
 ### Directory Structure
 
-The `host-app` directory contains the following files and directories:
+The `exonomy` directory contains the following files and directories:
 
 - `index.js`: Entry point for the host application
 - `package.json`: Dependencies and scripts for the host application
