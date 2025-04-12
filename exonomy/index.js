@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Exonomy host app listening at http://localhost:${port}`);
+  console.log(`Exonomy app listening at http://localhost:${port}`);
 });
