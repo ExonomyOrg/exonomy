@@ -20,13 +20,11 @@
 <script>
 import { ref } from 'vue';
 import { useDIDStore } from '../store/did';
-import { useThirdPartyAuthenticatorStore } from '../store/thirdPartyAuthenticator';
 
 export default {
   name: 'DIDManager',
   setup() {
     const didStore = useDIDStore();
-    const authenticatorStore = useThirdPartyAuthenticatorStore();
     const dropdownOpen = ref(false);
 
     const toggleDropdown = () => {
@@ -35,7 +33,6 @@ export default {
 
     const selectDID = (did) => {
       didStore.setCurrentDID(did);
-      authenticatorStore.setCurrentAuthenticator(null); // Reset the current authenticator
       dropdownOpen.value = false;
     };
 
